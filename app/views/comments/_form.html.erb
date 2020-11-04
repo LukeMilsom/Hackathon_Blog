@@ -1,0 +1,19 @@
+
+<% if(user_signed_in?) %>
+
+<%= simple_form_for([@post, @post.comments.build]) do |f| %>
+  <div class="field_c">
+  <h1 class="subtitle">Name</h1>
+        <%= f.input :name,
+        label: false,
+        input_html: { class: 'input' }, wrapper: false, label_html: { class: 'label' } %>
+      
+        <h1 class="subtitle">Comment</h1>
+        <%= f.input :comment,
+        label: false,
+        input_html: { class: 'textarea' }, wrapper: false, label_html: { class: 'label' }  %>
+    </div>
+    <button type="button" class="btn btn-info"><%= f.button :submit, 'Leave a reply', class: "button is-primary" %></button>
+    <% end %>
+
+<% end %>

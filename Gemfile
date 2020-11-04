@@ -38,9 +38,9 @@ gem 'better_errors', '~> 2.8', '>= 2.8.3'
 # bulma css
 # gem 'bulma-rails', '~> 0.0.4.1'
 gem 'jquery-rails'
-gem 'bootstrap', '~> 5.0.0.alpha1'
 gem 'devise'
-
+gem 'bootstrap-sass', '~> 3.4.1'
+gem 'sassc-rails', '>= 2.1.0'
 # Simple Form's
 gem 'simple_form', '~> 5.0', '>= 5.0.3'
 

@@ -1,8 +1,37 @@
-<section class="section">
-    <div class="container">
-        <h1 class="title"><%= @post.title %> </h1>
-<div class = "content">
-        <%= @post.content %>
+<div class="back">
+        <div class="margin">
+                <div class="field">
+                        <h1 class="title_s"><%= @post.title %> </h1>
+                        <div class="textarea_s">
+                                <%= @post.content %>
+                        <p>Created by: <%= @post.user.fullname %> </p>
+                        </div>
 
-    
-</section>
+                                <% if @post.user == current_user %>
+                                        <div class="ud">
+                                                        <p class="ud_item">
+                                                        <%= link_to "Edit", edit_post_path(@post), class: "button" %>
+                                                        </p>
+                                                        <p class="ud_item">
+                                                        <%= link_to "Delete", post_path(@post), method: :delete, data: { confirm: "Are you sure? "}, class: "button is-danger" %>
+                                                        </p>
+                                        </div>
+                                <% end %>
+                </div>
+                <hr />
+                <section class="section-comments">
+                        <div class="field">
+                                <h2 class="subtitle"><%= @post.comments.count %> Comments</h2>
+                                <div class="comments">
+                                <%= render @post.comments %>
+                                </div>
+                                <hr />
+                                <% if(user_signed_in? ) %>
+                                <h3 class="subtitle_c">Leave a reply</h3>
+                                        
+                                <%= render 'comments/form' %>
+                                <% end %>
+                        </div>
+                </section>
+        </div>
+</div>
